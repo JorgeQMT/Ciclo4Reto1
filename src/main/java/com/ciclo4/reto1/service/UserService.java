@@ -59,14 +59,14 @@ public class UserService {
         if(user.getId()!= null){
             Optional<User> usaux=userRepository.getUser(user.getId());
             if (!usaux.isEmpty()) {
-                if (user.getName() != null) {
-                    usaux.get().setName(user.getName());   
-                }
                 if (user.getEmail()!= null) {
                     usaux.get().setEmail(user.getEmail());   
                 }
                 if (user.getPassword()!= null) {
                     usaux.get().setPassword(user.getPassword());   
+                }
+                if (user.getName() != null) {
+                    usaux.get().setName(user.getName());   
                 }
                 userRepository.save(usaux.get());
                 return usaux.get();
